@@ -1,0 +1,42 @@
+page-register {
+    .background{
+        background: $royalBlue;
+        background-repeat:  no-repeat;
+        background-size: cover;
+    }
+
+    .input{
+        border-radius: 20px
+    }
+
+    .mata{
+        font-size: 5vw !important;
+        color: gray;
+    }
+
+    .buttonIn{
+        border-radius: 20px
+    }
+
+    .createWord{
+        font-size: 1.2em;
+        margin-top: 5vw;
+        text-align: center;
+        color: white
+    }
+
+    .linkCreate{
+        color: $royalBlueDark;
+        font-weight: 800;
+    }
+
+    p{
+        margin-top: 1vw;
+        margin-bottom: 0vw;
+    }
+
+    .term{
+        font-size: 3.5vw;
+        color: white;
+    }
+}

@@ -1,0 +1,78 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="royalBlue">
+    <ion-title>Daftar Baru</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="background">
+    <div>
+      <form #registerForm="ngForm" novalidate>
+        <ion-item class="input">
+          <ion-input type="text" placeholder="Nama Sesuai KTP" [(ngModel)]="Username" #name="ngModel" name="username" required></ion-input>
+        </ion-item>
+        <p ion-text [hidden]="name.valid || submitted == false" color="danger" padding-left class="Warning">
+          Nama harus diisi dengan benar
+        </p>
+        <br/>
+        <ion-item class="input">
+          <ion-input type="email" placeholder="Email" [(ngModel)]="Email" #mail="ngModel" name="email" required></ion-input>
+        </ion-item>
+        <p ion-text [hidden]="mail.valid || submitted == false" color="danger" padding-left class="Warning">
+          Email harus diisi dengan benar
+        </p>
+        <br/>
+        <ion-item class="input">
+          <ion-input type="number" placeholder="Nomor Telfon" [(ngModel)]="Telphone" #phone="ngModel" name="telphone" required></ion-input>
+        </ion-item>
+        <p ion-text [hidden]="phone.valid || submitted == false" color="danger" padding-left class="Warning">
+          Email harus diisi dengan benar
+        </p>
+        <br/>
+        <ion-item class="input">
+          <ion-input type="{{status}}" placeholder="Password" [(ngModel)]="Password" #pass="ngModel" name="password" required></ion-input>
+          <button class="mata" [hidden]="lihat == false" (click)="showPassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye" class='icon' color="primary2"> </ion-icon> </button>
+          <button class="mata" [hidden]="lihat == true" (click)="hidePassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye-off" class='icon' color="primary2"> </ion-icon> </button>
+        </ion-item>
+        <p ion-text [hidden]="pass.valid || submitted == false" color="danger" padding-left class="Warning">
+          Password harus diisi
+        </p>
+        <br/>
+        <ion-item class="input">
+          <ion-input type="email" placeholder="Nomor KTP" [(ngModel)]="KTPnum" #ktp="ngModel" name="ktpnum" required></ion-input>
+        </ion-item>
+        <p ion-text [hidden]="ktp.valid || submitted == false" color="danger" padding-left class="Warning">
+          Nomor KTP harus diisi dengan benar
+        </p>
+        <br/>
+        <ion-item class="input">
+          <ion-textarea type="text" placeholder="Alamat" [(ngModel)]="Address" #addr="ngModel" name="address" required></ion-textarea>
+        </ion-item>
+        <p ion-text [hidden]="addr.valid || submitted == false" color="danger" padding-left class="Warning">
+          Alamat harus diisi dengan benar
+        </p>
+        <br>
+        <div class="row">
+          <ion-col col-1>
+            <ion-checkbox color="royalBlueDark" (click)="acc()"></ion-checkbox>
+          </ion-col>
+          <ion-col col-11>
+              <div class="term">Dengan mendaftar, saya setuju dengan syarat dan ketentuan yang berlaku</div>
+            </ion-col>
+        </div>
+      </form>
+      <br/>
+      <Button class="buttonIn" ion-button color="royalBlueDark" (click)="signUp(registerForm)" block>
+        Daftar
+      </Button>
+    </div>
+    
+  </ion-content>
+  

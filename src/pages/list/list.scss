@@ -1,3 +1,19 @@
 page-list {
+    .cont{
+        margin-top: 3vw;
+        padding: 3vw;
+        border: 1.5px royalblue solid;
+        border-radius: 15px;
+    }
 
+    .headCont{
+        text-align: center;
+        color: royalblue;
+        margin: 3vw;
+        font-weight: 600
+    }
+
+    .bodyCont{
+        margin: 1vw;
+    }
 }
