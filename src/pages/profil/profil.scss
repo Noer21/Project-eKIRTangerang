@@ -1,0 +1,35 @@
+page-profil {
+    .Nama {
+        text-align: center;
+        color: #202020;
+        // font-size: 18px;
+        font-size: 6vw;
+        font-weight: 5px;
+    }
+    
+    .Head {
+        margin-left: 4vw;
+        font-size: 5vw;
+        font-weight: 6px;
+        color: #202020;
+    }
+
+    .Konten {
+        margin-left: 4vw;
+        font-size: 5vw;
+        color: gray;
+    }
+
+    .Icon {
+        padding-left: 5vw;
+        font-size: 10vw;
+        color: $royalBlueSoft;
+    }
+
+    .Button{
+        border-radius: 15px;
+        margin-top: 4vw;
+        padding: 2vw;
+        height: 10vw !important;
+    }
+}

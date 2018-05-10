@@ -1,4 +1,4 @@
-page-home {
+page-riwayat {
     .headCard{
         font-size: 5vw;
         font-weight: 500;
@@ -6,9 +6,16 @@ page-home {
         padding-bottom: 2vw !important;
     }
 
-    .line{
+    .line1{
         padding-bottom: 2vw;
         border-bottom: 0.1vw $royalBlueSoft solid;
+        text-align: left;
+    }
+
+    .StatusGreen{
+        text-align: right;
+        color: greenyellow;
+        font-style: italic;
     }
 
     .info{
@@ -18,19 +25,6 @@ page-home {
     ion-col{
         margin: 0vw !important;
         padding: 1vw !important;
-    }
-
-    .kaki{
-        background-color: $royalBlue;
-        text-align: center;
-        min-height: 6vh;
-    }
-
-    .kakiWord{
-        font-size: 1.1em;
-        margin-top: 1.4vh;
-        color: white;
-        font-weight: 500;
     }
 
 }

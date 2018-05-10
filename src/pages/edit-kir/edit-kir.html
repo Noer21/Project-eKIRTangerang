@@ -1,0 +1,47 @@
+<!--
+  Generated template for the EditInventarisPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar  color="royalBlue">
+      <ion-title>Sunting daftar KIR</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+  <form #editForm="ngForm" novalidate>
+    <div class="labels">Tipe dan Merk Mobil</div>
+    <ion-item>
+       <ion-input type="text" placeholder="Role Royce 007" [(ngModel)]="merkMobil" #name="ngModel" name="merkMobil"></ion-input>
+    </ion-item>
+    <div class="labels">Nomor Polisi</div>
+    <ion-item>
+       <ion-input type="text" placeholder="B 0070 JMB" [(ngModel)]="nomorPolisi" #name="ngModel" name="nomorpolisi"></ion-input>
+    </ion-item>
+    <div class="labels">Lokasi Uji</div>
+    <ion-item>
+      <ion-select placeholder="Samsat digidaw"  item-width="40px" class="inputSelect" [(ngModel)]="lokasiUji" #name="ngModel" name="lokasiuji">
+          <div>
+            <!-- ngfor diatas -->
+            <ion-option value=1>digidaw</ion-option>
+            <ion-option value=2>digiduw</ion-option>
+          </div>
+      </ion-select>
+    </ion-item>
+    <div class="labels">Tanggal Uji</div>
+    <ion-item>
+      <ion-input type="date" placeholder="17-11-1996" [(ngModel)]="tanggalUji" #name="ngModel" name="tanggaluji"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
+
+<ion-footer (click)="save()" color="royalBlue" class="kaki">
+    <div class="kakiWord">
+      Simpan
+    </div>
+  </ion-footer>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController  } from 'ionic-angular';
+import { NavController, AlertController, ModalController  } from 'ionic-angular';
+import { DetailPage } from '../detail/detail';
+import { ModalPage } from '../modal/modal';
 
 @Component({
   selector: 'page-home',
@@ -11,37 +13,43 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    public modalCtrl: ModalController) {
 
   }
 
-  addVehicle(){
-    this.daftar = this.alertCtrl.create({
-      title: 'Daftar',
-      message: "Masukan nomor polisi kendaraan anda. Tanpa Spasi",
-      inputs: [
-        {
-          name: 'policeNum',
-          placeholder: 'Nomor Polisi'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Batal',
-        },
-        {
-          text: 'Daftar',
-          handler: data => {
-            this.Reg(data.policeNum);
-          }
-        }
-      ]
-    });
-    this.daftar.present();
+  detail(){
+    this.navCtrl.push(DetailPage)
   }
 
-  Reg(data){
-    
+  addVehicle() {
+    let modal = this.modalCtrl.create(ModalPage);
+    modal.present();
   }
+
+  // add(){
+  //   this.daftar = this.alertCtrl.create({
+  //     title: 'Daftar',
+  //     message: "Masukan nomor polisi kendaraan anda. Tanpa Spasi",
+  //     inputs: [
+  //       {
+  //         name: 'policeNum',
+  //         placeholder: 'Nomor Polisi'
+  //       },
+  //     ],
+  //     buttons: [
+  //       {
+  //         text: 'Batal',
+  //       },
+  //       {
+  //         text: 'Daftar',
+  //         handler: data => {
+  //           this.Reg(data.policeNum);
+  //         }
+  //       }
+  //     ]
+  //   });
+  //   this.daftar.present();
+  // }
 
 }

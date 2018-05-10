@@ -16,6 +16,7 @@
     <div>
       <form #registerForm="ngForm" novalidate>
         <ion-item class="input">
+            <ion-label><ion-icon name="person"></ion-icon></ion-label>
           <ion-input type="text" placeholder="Nama Sesuai KTP" [(ngModel)]="Username" #name="ngModel" name="username" required></ion-input>
         </ion-item>
         <p ion-text [hidden]="name.valid || submitted == false" color="danger" padding-left class="Warning">
@@ -23,6 +24,7 @@
         </p>
         <br/>
         <ion-item class="input">
+            <ion-label><ion-icon name="mail"></ion-icon></ion-label>
           <ion-input type="email" placeholder="Email" [(ngModel)]="Email" #mail="ngModel" name="email" required></ion-input>
         </ion-item>
         <p ion-text [hidden]="mail.valid || submitted == false" color="danger" padding-left class="Warning">
@@ -30,13 +32,15 @@
         </p>
         <br/>
         <ion-item class="input">
-          <ion-input type="number" placeholder="Nomor Telfon" [(ngModel)]="Telphone" #phone="ngModel" name="telphone" required></ion-input>
+            <ion-label><ion-icon name="call"></ion-icon></ion-label>
+          <ion-input type="number" placeholder="Nomor Telpon" [(ngModel)]="Telphone" #phone="ngModel" name="telphone" required></ion-input>
         </ion-item>
         <p ion-text [hidden]="phone.valid || submitted == false" color="danger" padding-left class="Warning">
           Email harus diisi dengan benar
         </p>
         <br/>
         <ion-item class="input">
+            <ion-label><ion-icon name="key"></ion-icon></ion-label>
           <ion-input type="{{status}}" placeholder="Password" [(ngModel)]="Password" #pass="ngModel" name="password" required></ion-input>
           <button class="mata" [hidden]="lihat == false" (click)="showPassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye" class='icon' color="primary2"> </ion-icon> </button>
           <button class="mata" [hidden]="lihat == true" (click)="hidePassword()" ion-button clear color="dark" type="button" item-right> <ion-icon name="md-eye-off" class='icon' color="primary2"> </ion-icon> </button>
@@ -46,13 +50,15 @@
         </p>
         <br/>
         <ion-item class="input">
-          <ion-input type="email" placeholder="Nomor KTP" [(ngModel)]="KTPnum" #ktp="ngModel" name="ktpnum" required></ion-input>
+            <ion-label><ion-icon name="card"></ion-icon></ion-label>
+          <ion-input type="text" placeholder="Nomor KTP" [(ngModel)]="KTPnum" #ktp="ngModel" name="ktpnum" required></ion-input>
         </ion-item>
         <p ion-text [hidden]="ktp.valid || submitted == false" color="danger" padding-left class="Warning">
           Nomor KTP harus diisi dengan benar
         </p>
         <br/>
         <ion-item class="input">
+            <ion-label><ion-icon name="pin"></ion-icon></ion-label>
           <ion-textarea type="text" placeholder="Alamat" [(ngModel)]="Address" #addr="ngModel" name="address" required></ion-textarea>
         </ion-item>
         <p ion-text [hidden]="addr.valid || submitted == false" color="danger" padding-left class="Warning">
