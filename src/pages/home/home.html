@@ -8,10 +8,10 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card (click)="detail()">
+  <ion-card (click)="detail(car)" *ngFor="let car of cars">
     <ion-card-header class="headCard">
       <div class="line">
-          Roll Royce 007
+          {{car.jenis_kendaraan}}
       </div>
     </ion-card-header>
     <ion-card-content>
@@ -23,18 +23,7 @@
           :
         </ion-col>
         <ion-col col-6 class="info">
-          B 0070 JMB
-        </ion-col>
-      </div>
-      <div class="row">
-        <ion-col col-5>
-          Tanggal Daftar
-        </ion-col>
-        <ion-col col-1>
-          :
-        </ion-col>
-        <ion-col col-6 class="info">
-          10-11-1996
+          {{car.no_kendaraan}}
         </ion-col>
       </div>
       <div class="row">
@@ -45,7 +34,19 @@
           :
         </ion-col>
         <ion-col col-6 class="info">
-          17-11-1996
+          {{car.tanggal_uji | date: "MMMM dd, yyyy"}}
+          <!-- <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="car.tanggal_uji" class="dateDis" ></ion-datetime> -->
+        </ion-col>
+      </div>
+      <div class="row">
+        <ion-col col-5>
+          Biaya Uji
+        </ion-col>
+        <ion-col col-1>
+          :
+        </ion-col>
+        <ion-col col-6 class="info">
+          {{car.biaya | currency:'Rp. ':true:'1.2-2'}}
         </ion-col>
       </div>
     </ion-card-content>

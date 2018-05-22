@@ -33,7 +33,7 @@
         <br/>
         <ion-item class="input">
             <ion-label><ion-icon name="call"></ion-icon></ion-label>
-          <ion-input type="number" placeholder="Nomor Telpon" [(ngModel)]="Telphone" #phone="ngModel" name="telphone" required></ion-input>
+          <ion-input type="number" placeholder="Nomor Telepon" [(ngModel)]="Telphone" #phone="ngModel" name="telphone" required></ion-input>
         </ion-item>
         <p ion-text [hidden]="phone.valid || submitted == false" color="danger" padding-left class="Warning">
           Email harus diisi dengan benar
@@ -75,7 +75,7 @@
         </div>
       </form>
       <br/>
-      <Button class="buttonIn" ion-button color="royalBlueDark" (click)="signUp(registerForm)" block>
+      <Button class="buttonIn" style="text-transform: none ;font-size : 0.9em;" ion-button color="royalBlueDark" (click)="signUp(registerForm)" block>
         Daftar
       </Button>
     </div>

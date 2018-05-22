@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ModalController  } from 'ionic-angular';
+import { NavController, AlertController, ModalController, LoadingController  } from 'ionic-angular';
 import { DetailPage } from '../detail/detail';
 import { ModalPage } from '../modal/modal';
+import 'rxjs/add/operator/timeout';
+import { Data } from '../../providers/data';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'page-home',
@@ -9,47 +12,82 @@ import { ModalPage } from '../modal/modal';
 })
 export class HomePage {
 
-  daftar: any
+  daftar: any;
+  cars:any;
+  dataUser:any;
+  id:number;
 
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    public loadCtrl: LoadingController,
+    public data: Data,
+    public http: Http) {
 
+      
   }
 
-  detail(){
-    this.navCtrl.push(DetailPage)
+  ionViewWillEnter() {
+    this.data.getData().then((data) => {
+      console.log(data);
+      this.id= data.id
+      this.getVehicle();  
+    })
+    console.log(this.navCtrl.length())
+  }
+
+  rto(){
+    let alert = this.alertCtrl.create({
+      title: 'Gagal',
+      subTitle: 'Periksa Jaringan Anda,',      
+      buttons: [
+        {
+          text: 'Refresh',
+          handler: data => {
+            this.navCtrl.setRoot(HomePage);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  detail(data){
+    this.navCtrl.setRoot(DetailPage, data)
   }
 
   addVehicle() {
-    let modal = this.modalCtrl.create(ModalPage);
-    modal.present();
+    this.navCtrl.push(ModalPage)
   }
 
-  // add(){
-  //   this.daftar = this.alertCtrl.create({
-  //     title: 'Daftar',
-  //     message: "Masukan nomor polisi kendaraan anda. Tanpa Spasi",
-  //     inputs: [
-  //       {
-  //         name: 'policeNum',
-  //         placeholder: 'Nomor Polisi'
-  //       },
-  //     ],
-  //     buttons: [
-  //       {
-  //         text: 'Batal',
-  //       },
-  //       {
-  //         text: 'Daftar',
-  //         handler: data => {
-  //           this.Reg(data.policeNum);
-  //         }
-  //       }
-  //     ]
-  //   });
-  //   this.daftar.present();
-  // }
+  getVehicle(){
+
+    let loading = this.loadCtrl.create({
+      content: 'memuat..'
+    });
+    loading.present()
+    
+    let  temp = this.id;
+    this.http.get(this.data.BASE_URL+"/all_kendaraan.php?user_id="+temp).timeout(7000).subscribe(data => {
+      let response = data.json();
+      console.log(response); 
+      console.log(this.id); 
+      if(response.status==200){    
+        this.cars = response.data;
+        console.log(this.cars)
+        loading.dismiss();
+      }
+      else {
+        loading.dismiss();
+          let alert = this.alertCtrl.create({
+            title: 'Something Wrong',      
+            message : 'Mohon buka dan tutup aplikasi',
+            buttons: ['OK']
+          });
+          alert.present();
+      }    
+      },(err) => { loading.dismiss(); this.rto()});
+  }
 
 }

@@ -12,7 +12,7 @@
     <form #loginForm="ngForm" novalidate>
       <ion-item class="input">
         <ion-label><ion-icon name="mail"></ion-icon></ion-label>
-        <ion-input type="email" placeholder="Email" [(ngModel)]="Username" #mail="ngModel" name="mail" type="email" required></ion-input>
+        <ion-input type="email" placeholder="Email" [(ngModel)]="Email" #mail="ngModel" name="mail" type="email" required></ion-input>
       </ion-item>
       <p ion-text [hidden]="mail.valid || submitted == false" color="danger" padding-left class="Warning">
         Email harus diisi
@@ -29,7 +29,7 @@
       </p>
     </form>
     <br/>
-    <Button class="buttonIn" ion-button color="royalBlueDark" (click)="signIn(loginForm)" block>
+    <Button class="buttonIn" style="text-transform: none ;font-size : 0.9em;" ion-button color="royalBlueDark" (click)="signIn(loginForm)" block>
       Masuk
     </Button>
     <div class="createWord">

@@ -15,27 +15,9 @@
 
 <ion-content padding>
   <form #editForm="ngForm" novalidate>
-    <div class="labels">Tipe dan Merk Mobil</div>
     <ion-item>
-       <ion-input type="text" placeholder="Role Royce 007" [(ngModel)]="merkMobil" #name="ngModel" name="merkMobil"></ion-input>
-    </ion-item>
-    <div class="labels">Nomor Polisi</div>
-    <ion-item>
-       <ion-input type="text" placeholder="B 0070 JMB" [(ngModel)]="nomorPolisi" #name="ngModel" name="nomorpolisi"></ion-input>
-    </ion-item>
-    <div class="labels">Lokasi Uji</div>
-    <ion-item>
-      <ion-select placeholder="Samsat digidaw"  item-width="40px" class="inputSelect" [(ngModel)]="lokasiUji" #name="ngModel" name="lokasiuji">
-          <div>
-            <!-- ngfor diatas -->
-            <ion-option value=1>digidaw</ion-option>
-            <ion-option value=2>digiduw</ion-option>
-          </div>
-      </ion-select>
-    </ion-item>
-    <div class="labels">Tanggal Uji</div>
-    <ion-item>
-      <ion-input type="date" placeholder="17-11-1996" [(ngModel)]="tanggalUji" #name="ngModel" name="tanggaluji"></ion-input>
+      <ion-label stacked>Tanggal Uji</ion-label>
+      <ion-datetime placeholder="{{temp.tanggal_uji | date: 'MMMM dd, yyyy'}}" [min]="minDate" displayFormat="DD MMMM YYYY" pickerFormat="DD-MMMM-YYYY" [(ngModel)]="tanggalUji" #name="ngModel" name="tanggaluji"></ion-datetime>
     </ion-item>
   </form>
 </ion-content>

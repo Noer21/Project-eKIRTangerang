@@ -17,6 +17,12 @@ import { DetailPage } from '../pages/detail/detail';
 import { ModalPage } from '../pages/modal/modal';
 import { EditKirPage } from '../pages/edit-kir/edit-kir';
 import { PopOverPage } from '../pages/pop-over/pop-over';
+import { Data } from '../providers/data';
+import { Http, HttpModule } from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
+import { EditProfilPage } from '../pages/edit-profil/edit-profil';
+import { UbahPasswordPage } from '../pages/ubah-password/ubah-password';
+import { Detail2homePage } from '../pages/detail2home/detail2home';
 
 @NgModule({
   declarations: [
@@ -32,11 +38,16 @@ import { PopOverPage } from '../pages/pop-over/pop-over';
     EditKirPage,
     PopOverPage,
     EditKirPage,
+    EditProfilPage,
+    UbahPasswordPage,
+    Detail2homePage,
     ModalPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,12 +63,16 @@ import { PopOverPage } from '../pages/pop-over/pop-over';
     EditKirPage,
     PopOverPage,
     EditKirPage,
+    EditProfilPage,
+    UbahPasswordPage,
+    Detail2homePage,
     ModalPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Data,
   ]
 })
 export class AppModule {}

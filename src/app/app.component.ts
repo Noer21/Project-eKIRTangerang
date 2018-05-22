@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Data } from '../providers/data';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -15,11 +16,15 @@ import { ProfilPage } from '../pages/profil/profil';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    public data: Data) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -38,6 +43,15 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    //Session
+    this.data.isLogin().then((value)=>{
+      if(value){
+        this.rootPage = HomePage;
+      } else {
+         this.rootPage = LoginPage;
+      }    
+    });
+    //Session
   }
 
   openPage(page) {

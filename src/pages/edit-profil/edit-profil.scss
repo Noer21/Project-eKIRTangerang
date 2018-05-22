@@ -1,4 +1,4 @@
-page-edit-kir {
+page-edit-profil {
     .labels{
         font-size: 5vw;
         color: black;
@@ -27,17 +27,8 @@ page-edit-kir {
         font-weight: 500;
     }
 
-    .dateclass{
-        width:100%;
-    }
-
-    .dateclass.placeholderclass::before{
-        width:100%;
-        content:attr(placeholder);
-    }
-
-    .dateclass.placeholderclass:hover::before{
-        width:0%;
-        content:"";
+    .mata{
+        font-size: 5vw !important;
+        color: gray;
     }
 }

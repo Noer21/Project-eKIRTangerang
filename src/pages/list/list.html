@@ -8,61 +8,6 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="cont">
-    <div class="headCont">
-      UJI BERKALA PERTAMA
-    </div>
-    <div class="bodyCont">
-      <div class="row">
-        <ion-col col-1>
-          1. 
-        </ion-col>
-        <ion-col col-11>
-          Fotocopy STNK
-        </ion-col>
-      </div>
-      <div class="row">
-        <ion-col col-1>
-          2. 
-        </ion-col>
-        <ion-col col-11>
-          Fotocopy KTP
-        </ion-col>
-      </div>
-      <div class="row">
-        <ion-col col-1>
-          3. 
-        </ion-col>
-        <ion-col col-11>
-          Surat kuasa dari pemilik bermaterai Rp. 6.000 apabila diurus pihak lain
-        </ion-col>
-      </div>
-      <div class="row">
-        <ion-col col-1>
-          4. 
-        </ion-col>
-        <ion-col col-11>
-          Surat registrasi uji tipe yang asli
-        </ion-col>
-      </div>
-      <div class="row">
-        <ion-col col-1>
-          5. 
-        </ion-col>
-        <ion-col col-11>
-          Izin trayek (bagi angkutan penumpang umum)
-        </ion-col>
-      </div>
-      <div class="row">
-        <ion-col col-1>
-          6. 
-        </ion-col>
-        <ion-col col-11>
-          Izin usaha angkutan umum (bagi angkutan umum)
-        </ion-col>
-      </div>
-    </div>
-  </div>
   <br/>
   <div class="cont">
     <div class="headCont">
@@ -118,5 +63,12 @@
         </ion-col>
       </div>
     </div>
+  </div>
+  <br />
+  <div class="cont" *ngFor="let rule of rules">
+    <div class="headCont">
+      {{rule.title}}
+    </div>
+    <span [innerHTML]=rule.description class="bodyCont"></span>
   </div>
 </ion-content>

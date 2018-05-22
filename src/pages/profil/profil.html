@@ -11,6 +11,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>profil</ion-title>
+    <ion-buttons end icon-only>
+      <button class="edit" (click)="editProfile()">
+          <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -18,33 +23,34 @@
 
 <ion-content>
   <ion-item padding-right text-wrap>
-    <p class="Nama">Jean Doe</p>
+    <p class="Nama">{{nama}}</p>
   </ion-item>
 
   <ion-item padding-right text-wrap>
     <ion-icon name="mail" item-left class="Icon"></ion-icon>
     <div class="Head">Email</div>
-    <div class="Konten">Lorem@ipsum.com</div>
+    <div class="Konten">{{email}}</div>
   </ion-item>
   <ion-item padding-right text-wrap>
     <ion-icon name="call" item-left class="Icon"></ion-icon>
     <div class="Head">Nomor Telepon</div>
-    <div class="Konten">087234XXXXX</div>
+    <div class="Konten">{{telpon}}</div>
   </ion-item>
   <ion-item padding-right text-wrap>
     <ion-icon name="md-map" item-left class="Icon"></ion-icon>
     <div class="Head">Alamat</div>
-    <div class="Konten">Alamat Palsu</div>
+    <div class="Konten">{{alamat}}</div>
   </ion-item>
   <ion-item padding-right text-wrap>
     <ion-icon name="md-card" item-left class="Icon"></ion-icon>
     <div class="Head">Nomor KTP</div>
-    <div class="Konten">32010XXXXXXX</div>
+    <div class="Konten">{{ktp}}</div>
   </ion-item>
 
   <ion-item padding-left-right>
-    <button class='Button' color="AyoDermawan" ion-button block (click)='riwayat()'>Riwayat</button>
-    <button class='Button' color="danger" ion-button outline block (click)='keluar()'>Keluar Akun</button>
+    <button class='Button' color="royalBlue" style="text-transform: none ;font-size : 0.85em;" ion-button block (click)='Riwayat()'>Riwayat</button>
+    <button class='Button' color="royalBlue" style="text-transform: none ;font-size : 0.85em;" ion-button block (click)='change()'>Ubah Password</button>
+    <button class='Button' color="danger" style="text-transform: none ;font-size : 0.85em;" ion-button outline block (click)='keluar()'>Keluar Akun</button>
   </ion-item>
 
 </ion-content>
