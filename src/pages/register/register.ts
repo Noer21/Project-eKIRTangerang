@@ -20,18 +20,18 @@ import 'rxjs/add/operator/timeout';
 })
 export class RegisterPage {
 
-  Username:any;
-  Email:any;
-  Telphone:any;
-  Password:any;
-  KTPnum:any;
-  Address:any;
+  Username: any;
+  Email: any;
+  Telphone: any;
+  Password: any;
+  KTPnum: any;
+  Address: any;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     public menuCtrl: MenuController,
-    private data : Data,
+    private data: Data,
     public loadCtrl: LoadingController,
     public alertCtrl: AlertController,
     public http: Http) {
@@ -46,10 +46,10 @@ export class RegisterPage {
   lihat = true;
   checked = false;
 
-  rto(){
+  rto() {
     let alert = this.alertCtrl.create({
       title: 'Gagal',
-      subTitle: 'Periksa Jaringan Anda,',      
+      subTitle: 'Periksa Jaringan Anda,',
       buttons: [
         {
           text: 'Refresh',
@@ -62,20 +62,20 @@ export class RegisterPage {
     alert.present();
   }
 
-  showPassword(){
+  showPassword() {
     this.status = "text";
     this.lihat = false;
     console.log(this.status);
   }
 
-  hidePassword(){
+  hidePassword() {
     this.status = "password";
     this.lihat = true;
     console.log(this.status);
   }
 
-  
-  signUp(data){
+
+  signUp(data) {
     this.submitted = true;
 
     let loading = this.loadCtrl.create({
@@ -83,14 +83,14 @@ export class RegisterPage {
     });
     loading.present()
 
-    if(this.Username && this.Email && this.Telphone && this.Password && this.KTPnum){
-      if(this.checked==false){
+    if (this.Username && this.Email && this.Telphone && this.Password && this.KTPnum) {
+      if (this.checked == false) {
         this.notacc()
       }
-      else{  
+      else {
         //apiPost
         let input = {
-          email: this.Email, 
+          email: this.Email,
           password: this.Password,
           nama: this.Username,
           phone_num: this.Telphone,
@@ -98,58 +98,58 @@ export class RegisterPage {
           alamat: this.Address
         };
         console.log(input);
-        this.http.post(this.data.BASE_URL+"/register_user.php",input).timeout(7000).subscribe(data => {
-        let response = data.json();
-        console.log(response); 
-        if(response.status==200){    
-          this.data.logout();
-          this.data.login(response.data,"user");//ke lokal
-          this.navCtrl.setRoot(HomePage);
-          loading.dismiss();
-        }
-        else if(response.status==405) {
-          loading.dismiss();
+        this.http.post(this.data.BASE_URL + "/register_user.php", input).timeout(7000).subscribe(data => {
+          let response = data.json();
+          console.log(response);
+          if (response.status == 200) {
+            this.data.logout();
+            this.data.login(response.data, "user");//ke lokal
+            this.navCtrl.setRoot(HomePage);
+            loading.dismiss();
+          }
+          else if (response.status == 405) {
+            loading.dismiss();
             let alert = this.alertCtrl.create({
-              title: 'Registrasi Gagal',      
-              message : 'Email yang anda masukan sudah terdaftar.',
+              title: 'Registrasi Gagal',
+              message: 'Email yang anda masukan sudah terdaftar.',
               buttons: ['OK']
             });
             alert.present();
-        }
-        else {
-          loading.dismiss();
+          }
+          else {
+            loading.dismiss();
             let alert = this.alertCtrl.create({
-              title: 'Registrasi Gagal',      
-              message : 'Cek Jaringan Anda',
+              title: 'Registrasi Gagal',
+              message: 'Cek Jaringan Anda',
               buttons: ['OK']
             });
             alert.present();
-        }   
-        },(err) => { loading.dismiss(); this.rto()});
+          }
+        }, (err) => { loading.dismiss(); this.rto() });
         //apiPost   
       }
     }
-    else{
+    else {
       loading.dismiss();
-          let alert = this.alertCtrl.create({
-            title: 'Registrasi Gagal',      
-            message : 'Mohon isi semua borang dengan benar.',
-            buttons: ['OK']
-          });
-          alert.present();
+      let alert = this.alertCtrl.create({
+        title: 'Registrasi Gagal',
+        message: 'Mohon isi semua borang dengan benar.',
+        buttons: ['OK']
+      });
+      alert.present();
     }
-    
+
   }
 
-  acc(){
+  acc() {
     if (this.checked == false)
       this.checked = true;
     else
-    this.checked = false;
+      this.checked = false;
     console.log(this.checked)
   }
 
-  notacc(){
+  notacc() {
     let alert = this.alertCtrl.create({
       title: 'Syarat & Ketentuan',
       subTitle: 'Untuk dapat mendaftar, anda harus menyetujui syarat dan ketentuan.',

@@ -14,6 +14,10 @@
 
 
 <ion-content padding>
+  <div *ngIf="cars == null" class="empty">
+    Riwayat Booking <br/>
+    Kosong
+  </div>
   <ion-card *ngFor="let car of cars">
     <ion-card-header class="headCard">
       <div class="row line1">

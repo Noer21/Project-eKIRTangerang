@@ -8,6 +8,10 @@
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf="cars == null" class="empty">
+    Daftar Booking <br/>
+    Kosong
+  </div>
   <ion-card (click)="detail(car)" *ngFor="let car of cars">
     <ion-card-header class="headCard">
       <div class="line">

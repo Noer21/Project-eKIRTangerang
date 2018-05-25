@@ -125,14 +125,7 @@ export class ModalPage {
       let alert = this.alertCtrl.create({
         title: 'Gagal',
         subTitle: 'Harap isi borang dengan benar!',      
-        buttons: [
-          {
-            text: 'Refresh',
-            handler: data => {
-              this.navCtrl.pop();
-            }
-          }
-        ]
+        buttons: ['Ok']
       });
       alert.present();
     }

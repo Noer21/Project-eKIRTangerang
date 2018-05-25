@@ -5,7 +5,7 @@ import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class Data {
-  public BASE_URL = 'http://apiekirtangerang.atspace.cc';
+  public BASE_URL = 'http://apiekirtangerang.herokuapp.com';
 
   public HAS_LOGGED_IN = 'status_login';
   
